@@ -1,0 +1,28 @@
+{
+  "name": "week-6-coding-assignement",
+  "version": "1.0.0",
+  "description": "War Card Game unit testing",
+  "main": "index2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fswilliams814/promineo-tech-week-6.git"
+  },
+  "keywords": [
+    "war",
+    "card",
+    "game"
+  ],
+  "author": "Fionna Williams",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fswilliams814/promineo-tech-week-6/issues"
+  },
+  "homepage": "https://github.com/Fswilliams814/promineo-tech-week-6#readme",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0"
+  }
+}
