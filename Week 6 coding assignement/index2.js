@@ -1,12 +1,14 @@
 //Fionna Williams Coding project week 6
+//week 6 project was to use what we have learned about javascript thus far to create the classic war game
+//below you will see that I created classes to control players, cards, the deck and the game
 class Player {
     constructor(name) {
         this.name = name;
-        this.hand = [];
+        this.hand = []; // each time we create a player we will create an array of cards for their hand
         this.score = 0;
     }
 }
-
+// this class will be used to create the cards for the deck
 class Card {
     constructor(rank, value, suit) {
         this.rank = rank;
@@ -16,9 +18,9 @@ class Card {
 }
 class Deck {
     constructor() {
-        this.deck = [];
+        this.deck = []; // when the deck is created it will create an array of cards for the game to be able to loop through
         const suits = ['Spades', 'Hearts', 'Clubs', 'Diamonds'];
-        const ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10',
+        const ranks = ['2','3', '4', '5', '6', '7', '8', '9', '10',
         'Jack', 'Queen', 'King', 'Ace'];
         
         //Create each card in the deck by looping over the suits and ranks. 
@@ -29,7 +31,7 @@ class Deck {
             }
         }
     }
-    // Shuffle in place method using the Durstenfeld shuffle randomly swapping card indexes
+    // we are using the Durstenfeld shuffle method which will randomly swap card indexes
     shuffle() {
         for (let i = this.deck.length - 1; i > 0; i--) {
             let randomIndex = Math.floor(Math.random() * (i + 1));
@@ -40,7 +42,7 @@ class Deck {
         return this.deck;
     }
 
-    //Split deck to both players
+    //Split deck and deals the cards to both players
     deal(firstPlayer, secondPlayer) {
         firstPlayer.hand = [...this.deck.slice(0,26)];
         secondPlayer.hand = [...this.deck.slice(26, 52)];
@@ -49,9 +51,11 @@ class Deck {
 //was missing the below code to restart the deck
 const testDeck = new Deck;
 console.dir(testDeck);
+
+// this is the game class created to control the function of the game
 class Game {
     constructor() {
-        this.players=[];
+        this.players=[]; // each time a new game is created an array of players will be created
     }
 
     // Captures the names of players. Will not accept null or empty string.
@@ -61,15 +65,15 @@ class Game {
         while (name == '' || name === null) {
             name = prompt(`Player must have a name. Please enter name of player ${player}.`);
         }
-        this.players.push(new Player(name));
+        this.players.push(new Player(name)); // push the players names to the players array
 
-        const playerDiv = document.querySelector('#' + player);
+        const playerDiv = document.querySelector('#' + player); // this connects the html page to the player's name
         playerDiv.textContent = name;
     }
 
     // Runs the game
     start() {
-        document.querySelector('#startbutton').disabled = true;
+        document.querySelector('#startbutton').disabled = true; // this disables the start button until user inputs players names
 
         this.createPlayer('one');
         this.createPlayer('two');
